@@ -34,6 +34,8 @@ async function fetchData() {
 	}
 }
 
+fetchData();
+
 //display Function
 function renderTable(data) {
 	console.log(data, "display function called");
