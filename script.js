@@ -7,7 +7,7 @@
 // 500 => internal error
 
 let data = [];
-
+//way1:-
 fetch(
 	"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
 )
@@ -20,6 +20,19 @@ fetch(
 	.catch((error) => {
 		console.error("Error", error);
 	});
+
+// way2: -
+async function fetchData() {
+	try {
+		const responce = await fetch(
+			"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
+		);
+		const data = await response.json();
+		renderTable(data);
+	} catch {
+		console.log(error);
+	}
+}
 
 //display Function
 function renderTable(data) {
